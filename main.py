@@ -15,6 +15,13 @@ def aboutUs():
     print(about)
 
 
+# Rules
+def rules():
+    rules = ""
+
+    print(rules)
+
+
 
 
 def showNotes():
@@ -23,31 +30,37 @@ def showNotes():
     with open('notes.json', 'r') as f:
         data = json.load(f)
 
-        print(data["notes"])
+    print("\nList of Notes which you have been stored:")
+    for dicts in data:
+        print(f"> {dicts}")
+
+    showDictValue = input(f"\nWhich Note you want to see? Type one of the Note Name which are shown above\n> ")
+
+    with open('notes.json', 'r') as f:
+        data = json.load(f)
+
+        print(data[f"{showDictValue}"])
 
 
 def writeNotes():
-    # print("this is write notes")
+    # print("this is update notes")
 
-    typeNote = input("Type your note below to store\n\n")
+    notesName = input("\nWhat will be the name of your notes?\n> ")
+    print(f"\nYour Note Name is selected as {notesName}\n")
 
-    with open("notes.json", 'r') as f:
-       data = json.load(f)
-
-       data["notes"] = typeNote
+    with open('notes.json', 'r') as f:
+        data = json.load(f)
 
     with open('notes.json', 'w') as f:
+        typeAnotherNote = input("Now type your note!\n> ")
+
+        data[f"{notesName}"] = typeAnotherNote
+
         json.dump(data, f)
-
-        updateMsg = "\n\nUPDATE MESSAGE - Your Notes has been updated!"
-        print(updateMsg)
-
-
-
 
 
 while True:
-    user = input("\nWhat you want to do? Ex - write, show, about us, exit\n> ")
+    user = input("\nWhat you want to do? Ex - write, show, about us, rules, exit\n> ")
 
 
     # Conditional Statements for the user
@@ -57,9 +70,10 @@ while True:
         showNotes()
     elif user == "about us".lower():
         aboutUs()
+    elif user == "rules".lower():
+        rules()
     elif user == "exit".lower():
         print("Thanks for using our Notes Application! We hope that you will use it again!")
         sys.exit()
     else:
-        print("Your value is not correct!")
-
+        print("Your choice is not correct! Try again!")
