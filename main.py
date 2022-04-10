@@ -10,7 +10,7 @@ def welcome():
     print(msg)
 
 def aboutUs():
-    about = "This is our Notes Application made by Arinjoy Nath!\nVersion 1.0.0-alpha\n\nAbout Us:\nWe make your life easier by storing your important Notes in your Personal Computer! At this time you can access/store only ONE NOTE and you cannot store MULTIPLE NOTES at a time. But we will soon create this feature and make this app more better than the old!\n\nThanks for Reading\nRegards, Arinjoy"
+    about = "This is our Notes Application made by Arinjoy Nath!\nVersion 1.1.0-alpha\n\nAbout Us:\nWe make your life easier by storing your important Notes in your Personal Computer! At this time you can access/store only ONE NOTE and you cannot store MULTIPLE NOTES at a time. But we will soon create this feature and make this app more better than the old!\n\nThanks for Reading\nRegards, Arinjoy"
 
     print(about)
 
